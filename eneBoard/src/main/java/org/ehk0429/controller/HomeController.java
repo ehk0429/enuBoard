@@ -1,4 +1,4 @@
-package org.iptime.ehk0429;
+package org.ehk0429.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

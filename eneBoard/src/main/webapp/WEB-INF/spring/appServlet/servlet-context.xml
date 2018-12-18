@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="org.iptime.ehk0429" />
+	<context:component-scan base-package="org.ehk0429.controller" />
 	
 	
 	
