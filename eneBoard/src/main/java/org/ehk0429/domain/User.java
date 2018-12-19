@@ -1,5 +1,7 @@
 package org.ehk0429.domain;
 
+import java.util.Date;
+
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
@@ -18,4 +20,6 @@ public class User {
 	private String phoneNum;
 	// 사용여부
 	private Boolean isEnabled;
+	// 등록일자
+	private Date createdAt;
 }

@@ -1,5 +1,7 @@
 package org.ehk0429.domain;
 
+import java.util.Date;
+
 import org.ehk0429.code.BoardType;
 import org.springframework.stereotype.Component;
 
@@ -16,8 +18,11 @@ public class Board {
 	private String title;
 	// 내용
 	private String content;
-	// 댓글 id
-	private int commentId;
 	// 비밀글 여부
 	private Boolean isEnabled;
+	// 등록일자
+	private Date createdAt;
+	// 변경일자
+	private Date updatedAt;
+	// 댓글
 }
