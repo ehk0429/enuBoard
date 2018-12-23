@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="org.iptime.ehk0429">
+	<logger name="org.ehk0429.controller">
 		<level value="info" />
 	</logger>
 	

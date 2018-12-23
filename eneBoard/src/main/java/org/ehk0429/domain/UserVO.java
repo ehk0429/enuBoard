@@ -2,13 +2,14 @@ package org.ehk0429.domain;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
 @Component
 @Data
-public class User {
+public class UserVO {
 	
 	// 아이디
 	private String id;
@@ -21,5 +22,6 @@ public class User {
 	// 사용여부
 	private Boolean isEnabled;
 	// 등록일자
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private Date createdAt;
 }
