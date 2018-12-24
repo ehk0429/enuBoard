@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ehk0429.mapper.BoardMapper">
+	<select id="getBoard" resultType="org.ehk0429.domain.BoardVO">
+		SELECT * FROM board WHERE id=
+		#{id}
+	</select>
+	<select id="getGuestBook"
+		resultType="org.ehk0429.domain.BoardVO">
+		SELECT * FROM board WHERE id= #{id}
+	</select>
+	<insert id="insert">
+		INSERT INTO board (type, title, content, is_enabled,
+		writer)
+		VALUES (#{type}, #{title}, #{content}, #{is_enabled},
+		#{writer})
+	</insert>
+	<update id="update">
+		UPDATE board
+		SET `type` = #{type}, title = #{title},
+		content = #{content}, is_enabled = #{is_enabled}
+		WHERE id = #{id}
+	</update>
+	<delete id="delete">
+		DELETE FROM board WHERE id= #{id}
+	</delete>
+</mapper>
