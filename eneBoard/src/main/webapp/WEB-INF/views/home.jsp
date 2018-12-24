@@ -29,7 +29,7 @@
 					<li class="nav-item"><a class="nav-link disabled"
 						href="guestBook/list">방명록</a>
 					<li class="nav-item"><a class="nav-link disabled"
-						href="dictionary/search">사전</a>
+						href="translation/search">사전</a>
 					<li class="nav-item"><a class="nav-link disabled"
 						href="work/list">일자리정보</a></li>
 				</ul>
