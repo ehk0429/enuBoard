@@ -54,7 +54,7 @@
 	</header>
 
 	<!-- Begin page content -->
-	<main role="main" class="container" style="padding-top: 60px;">
+	<main role="main" class="container" style="padding-top: 150px;">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">

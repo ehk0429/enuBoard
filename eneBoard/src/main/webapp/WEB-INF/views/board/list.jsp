@@ -45,17 +45,12 @@
 					<li class="nav-item"><a class="nav-link disabled"
 						href="../work/list">일자리정보</a></li>
 				</ul>
-				<form class="form-inline mt-2 mt-md-0">
-					<input class="form-control mr-sm-2" type="text"
-						placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
-				</form>
 			</div>
 		</nav>
 	</header>
 
 	<!-- Begin page content -->
-	<main role="main" class="container" style="padding-top: 60px;">
+	<main role="main" class="container" style="padding-top: 150px;">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -87,6 +82,32 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						<nav aria-label="Page navigation example">
+						<form role="form" name="actionForm" id="actionForm"
+								action="/board/list" method="get">
+							<ul class="pagination">
+								<c:if test="${pages.prev }">
+									<li class="page-item"><a class="page-link"
+										href="${pages.startPage -1 }" aria-label="Previous"> <span
+											aria-hidden="true">&laquo;</span> <span class="sr-only">Previous</span>
+									</a></li>
+								</c:if>
+								<c:forEach var="num" begin="${pages.startPage }"
+									end="${pages.endPage }">
+									<li class="page-item ${pages.page.num == num * 5 - 5 ? 'active' : ' '}"><a
+										class="page-link" href="${num == 1 ? 1 : num * 5 - 5}">${num }</a></li>
+								</c:forEach>
+								<c:if test="${pages.next }">
+									<li class="page-item"><a class="page-link"
+										href="${pages.endPage + 1 }" aria-label="Next"> <span
+											aria-hidden="true">&raquo;</span> <span class="sr-only">Next</span>
+									</a></li>
+								</c:if>
+							</ul>					
+								<input type="hidden" name="num" value="${pages.page.num}">
+								<input type="hidden" name="amount" value="${pages.page.amount }">
+							</form>
+						</nav>
 					</div>
 				</div>
 			</div>
@@ -118,4 +139,14 @@
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
 </body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var actionForm = $('#actionForm')
+		$('a.page-link').on('click', function(e) {
+			e.preventDefault();
+			actionForm.find("input[name='num']").val($(this).attr("href"));
+			actionForm.submit();
+		});
+	});
+</script>
 </html>

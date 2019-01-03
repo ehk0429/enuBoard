@@ -1,6 +1,8 @@
 package org.ehk0429.controller;
 
 import org.ehk0429.domain.BoardVO;
+import org.ehk0429.domain.Page;
+import org.ehk0429.domain.PageDTO;
 import org.ehk0429.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +22,9 @@ public class BoardController {
 	private BoardService service;
 
 	@GetMapping("/list")
-	public void list(Model model) {
-		model.addAttribute("list", service.getBoards());
+	public void list(Model model, Page page) {
+		model.addAttribute("list", service.getBoards(page));
+		model.addAttribute("pages", new PageDTO(page, service.getBoardTotalCount()));
 	}
 
 	@GetMapping("/detail")

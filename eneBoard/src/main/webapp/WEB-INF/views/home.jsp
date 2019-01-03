@@ -8,6 +8,14 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
+<style type="text/css">
+body, html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background-color: #696969;
+}
+</style>
 <title></title>
 </head>
 <body>
@@ -33,24 +41,34 @@
 					<li class="nav-item"><a class="nav-link disabled"
 						href="work/list">일자리정보</a></li>
 				</ul>
-				<form class="form-inline mt-2 mt-md-0">
-					<input class="form-control mr-sm-2" type="text"
-						placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
-				</form>
+				<a href="/logout">LOGOUT</a> 
 			</div>
 		</nav>
 	</header>
 
 	<!-- Begin page content -->
-	<main role="main" class="container" style="padding-top: 60px;">
-	<h1 class="mt-5">HOME</h1>
-	<p class="lead"></p>
-	</main>
+	<div class="card-deck mb-3 text-center" style="padding: 20%">
+     <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">KIM EUN HYE</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">김은혜 <small class="text-muted"></small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>1992.04.29</li>
+          <li>ehk0429@gmail.com</li>
+          <li><a href="https://github.com/ehk0429/">https://github.com/ehk0429/</a></li>
+        </ul>
+        <a class="btn btn-lg btn-block btn-primary"
+							href='/login'>Contact</a>
+      </div>
+    </div>
+  </div>
+
 
 	<footer class="footer">
 		<div class="container">
-			<span class="text-muted">content</span>
+			<span class="text-muted"></span>
 		</div>
 	</footer>
 
@@ -66,4 +84,6 @@
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
 </body>
+<script type="text/javascript">
+</script>
 </html>

@@ -3,15 +3,20 @@ package org.ehk0429.service;
 import java.util.List;
 
 import org.ehk0429.domain.BoardVO;
+import org.ehk0429.domain.Page;
 
 public interface BoardService {
 	
 	// 전체 조회
-	public List<BoardVO> getBoards();
+	public List<BoardVO> getBoards(Page page);
+	
+	public Integer getBoardTotalCount();
 	// 상세 조회
 	public BoardVO getBoard(int id);
 	// 전체 조회
-	public List<BoardVO> getGuestBooks();
+	public List<BoardVO> getGuestBooks(Page page);
+	
+	public Integer getGuestBookTotalCount();
 	// 상세 조회
 	public BoardVO getGuestBook(int id);
 	// 등록

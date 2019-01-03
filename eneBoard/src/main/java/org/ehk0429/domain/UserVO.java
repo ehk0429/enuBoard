@@ -18,9 +18,11 @@ public class UserVO {
 	// 비밀번호
 	private String password;
 	// 전화번호
-	private String phoneNum;
+	private String phone_num;
 	// 사용여부
 	private Boolean isEnabled;
+	
+	private String auth;
 	// 등록일자
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private Date createdAt;

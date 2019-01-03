@@ -9,4 +9,8 @@ public interface UserMapper {
 
 	@Select("SELECT * FROM user")
 	public List<UserVO> getList();
+	
+	public UserVO read(String user_id);
+	
+	public void insert(UserVO userVO);
 }

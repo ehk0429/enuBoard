@@ -7,6 +7,24 @@
 		SELECT * FROM board WHERE id=
 		#{id}
 	</select>
+	<select id="getBoardListWithPaging"
+		resultType="org.ehk0429.domain.BoardVO">
+		select *
+		from board
+		WHERE `type` LIKE '%BOARD%'
+		order by
+		created_at DESC
+		limit #{num}, 5
+	</select>
+		<select id="getGuestBookListWithPaging"
+		resultType="org.ehk0429.domain.BoardVO">
+		select *
+		from board
+		WHERE `type` LIKE '%GUESTBOOK%'
+		order by
+		created_at DESC
+		limit #{num}, 5
+	</select>
 	<select id="getGuestBook"
 		resultType="org.ehk0429.domain.BoardVO">
 		SELECT * FROM board WHERE id= #{id}

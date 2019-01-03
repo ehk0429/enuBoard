@@ -1,6 +1,8 @@
 package org.ehk0429.controller;
 
 import org.ehk0429.domain.BoardVO;
+import org.ehk0429.domain.Page;
+import org.ehk0429.domain.PageDTO;
 import org.ehk0429.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +22,9 @@ public class GuestBookController {
 	private BoardService boardService;
 
 	@GetMapping("/list")
-	private void list(Model model) {
-		model.addAttribute("list", boardService.getGuestBooks());
+	private void list(Model model, Page page) {
+		model.addAttribute("pages", new PageDTO(page, boardService.getGuestBookTotalCount()));
+		model.addAttribute("list", boardService.getGuestBooks(page));
 	}
 	
 	@GetMapping("/detail")

@@ -44,11 +44,6 @@
 					<li class="nav-item active"><a class="nav-link disabled"
 						href="../work/list">일자리정보</a></li>
 				</ul>
-				<form class="form-inline mt-2 mt-md-0">
-					<input class="form-control mr-sm-2" type="text"
-						placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
-				</form>
 			</div>
 		</nav>
 	</header>
@@ -57,51 +52,53 @@
 	<main role="main" class="container" style="padding-top: 20%;">
 	<div class="container">
 		<form role="form" action="/work/list" method="post" id="form">
-			<div class="row mb-2">
+			<div class="row mb-4">
 				<div class="col">
-					<input class="form-control" name="keywords"/>
+					<p>KEYWORD</p>
+					<input class="form-control" name="keywords" />
 				</div>
 				<div class="col">
-					<select class="form-control">
-						<option value=""></option>
+					<p>검색 결과 수</p>
+					<select class="form-control" name="count">
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option value="30">30</option>
+						<option value="40">40</option>
+						<option value="50">50</option>
 					</select>
 				</div>
 				<div class="col">
-					<select class="form-control">
-						<option value=""></option>
+					<p>근무지/지역</p>
+					<select class="form-control" name="loc_mcd">
+						<option value="101000">서울전체</option>
+						<option value="102000">경기</option>
 					</select>
 				</div>
-				<div class="col">
-					<select class="form-control">
-						<option value=""></option>
-					</select>
-				</div>
-				<div class="col">
+				<div class="col" style="padding-top: 40px">
 					<button class="btn btn-primary" id="search">검색</button>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col">
-					<div class="card">
-						<div class="card-header">dd</div>
-						<div class="card-body">dd</div>
-						<div class="card-footer">dd</div>
+				<c:forEach items="${result }" var="job">
+					<div class="col-3 mb-3">
+						<div class="card">
+							<div class="card-header">
+								<input type="hidden" value="${job.id }" /> <a
+									href="${job.company.name.href }">${job.company.name.content }</a>
+							</div>
+							<div class="card-body">
+								<p>
+									<b>${job.position.title }</b>
+								</p>
+								<p>${job.position.location.content }</p>
+								<p>${job.salary.content }</p>
+							</div>
+							<div class="card-footer">
+								<a href="${job.url }">채용공고</a>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="col">
-					<div class="card">
-						<div class="card-header">dd</div>
-						<div class="card-body">dd</div>
-						<div class="card-footer">dd</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card">
-						<div class="card-header">dd</div>
-						<div class="card-body">dd</div>
-						<div class="card-footer">dd</div>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 		</form>
 	</div>
@@ -126,10 +123,10 @@
 		crossorigin="anonymous"></script>
 </body>
 <script type="text/javascript">
-var form = document.getElementById('form');
-console.log(form);
-document.getElementById('search').onclick = function() {
-	form.submit();
-}
+	var form = document.getElementById('form');
+	console.log(form);
+	document.getElementById('search').onclick = function() {
+		form.submit();
+	}
 </script>
 </html>
