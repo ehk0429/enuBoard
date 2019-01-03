@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ehk0429.mapper.UserMapper">
+	<resultMap type="org.ehk0429.domain.UserVO" id="userMap">
+	</resultMap>
+	<resultMap type="org.ehk0429.domain.AuthVO" id="authMap">
+	</resultMap>
+	<select id="read" resultMap="userMap">
+		SELECT * FROM `user` mem
+		LEFT OUTER JOIN auth ON mem.id = auth.user_id
+		WHERE mem.id = #{user_id}
+	</select>
+	<insert id="insert">
+		INSERT INTO user (id, password, name, phone_num) VALUES (#{id}, #{password}, #{name}, #{phone_num})
+	</insert>
+</mapper>
