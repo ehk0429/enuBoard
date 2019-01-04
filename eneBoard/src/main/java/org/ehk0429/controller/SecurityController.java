@@ -51,7 +51,6 @@ public class SecurityController {
 	@PostMapping("/join")
 	public String joinPost(UserVO user, RedirectAttributes redirectAttributes) {
 		service.register(user);
-		System.out.println(user);
 		redirectAttributes.addFlashAttribute("result", user.getId());
 		if (user.getId() != null) {
 			service.authRegister(user.getId()); // primary key

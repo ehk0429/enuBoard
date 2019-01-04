@@ -44,11 +44,6 @@
 					<li class="nav-item"><a class="nav-link disabled"
 						href="../work/list">일자리정보</a></li>
 				</ul>
-				<form class="form-inline mt-2 mt-md-0">
-					<input class="form-control mr-sm-2" type="text"
-						placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
-				</form>
 			</div>
 		</nav>
 	</header>
@@ -60,7 +55,8 @@
 			<div class="col-lg-12">
 				<div class="card">
 					<div class="card">
-						<form role="form" action="/board/register" method="post" id="form">
+						<form role="form" action="/board/register" method="post"
+							id="actionForm">
 							<div class="card-header">
 								<div class="form-group form-inline">
 									<input type="hidden" name="type" value="BOARD" /> <label
@@ -70,7 +66,8 @@
 									</div>
 									<label class="col-sm-2 col-form-label">writer</label>
 									<div class="auto">
-										<input type="text" class="form-control" name='writer' />
+										<input type="text" class="form-control" readonly="readonly"
+											name='writer' value="${writer }" />
 									</div>
 								</div>
 							</div>
@@ -96,6 +93,10 @@
 											name="is_enabled" id="radio" value="true"> <label
 											class="form-radio-label" for="radio">yes</label>
 									</div>
+								</div>
+								<div class="form-group form-inline">
+									<input type="hidden" name="${_csrf.parameterName}"
+										value="${_csrf.token}" />
 								</div>
 							</div>
 						</form>
@@ -129,10 +130,9 @@
 		crossorigin="anonymous"></script>
 </body>
 <script type="text/javascript">
-	var form = document.getElementById('form');
-	console.log(form);
-	document.getElementById('add').onclick = function() {
+	var form = $('#actionForm')
+	$('#add').on('click', function(e) {
 		form.submit();
-	}
+	})
 </script>
 </html>

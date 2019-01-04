@@ -25,7 +25,6 @@ public class WorkController {
 	public void list() {
 	}
 	
-	@GetMapping
 	@PostMapping("/list")
 	public String list(@RequestParam("keywords") String keywords, @RequestParam("loc_mcd") int loc_mcd, @RequestParam("count") int count, Model model) {
 		model.addAttribute("result", service.getWorkList(keywords, loc_mcd, count));

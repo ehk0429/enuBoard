@@ -4,12 +4,16 @@ import org.ehk0429.domain.BoardVO;
 import org.ehk0429.domain.Page;
 import org.ehk0429.domain.PageDTO;
 import org.ehk0429.service.BoardService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.AllArgsConstructor;
@@ -38,12 +42,12 @@ public class BoardController {
 	}
 
 	@GetMapping("/register")
-	public void register() {
+	public void register(Authentication authentication, Model model) {
+		model.addAttribute("writer", authentication.getName());
 	}
 
 	@PostMapping("/register")
-	public String register(BoardVO board, RedirectAttributes redirectAttributes) {
-		System.out.println(board);
+	public String test(BoardVO board, RedirectAttributes redirectAttributes) {
 		service.register(board); // 등록
 		redirectAttributes.addFlashAttribute("result", board.getId());
 		return "redirect:/board/list";
@@ -51,7 +55,6 @@ public class BoardController {
 
 	@PostMapping("/modify")
 	public String modify(BoardVO board, RedirectAttributes redirectAttributes) {
-		System.out.println(board);
 		if (service.modify(board)) { // 수정 성공시 true
 			redirectAttributes.addFlashAttribute("result", "success");
 		}

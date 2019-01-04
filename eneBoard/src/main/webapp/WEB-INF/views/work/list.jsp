@@ -52,6 +52,8 @@
 	<main role="main" class="container" style="padding-top: 20%;">
 	<div class="container">
 		<form role="form" action="/work/list" method="post" id="form">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
 			<div class="row mb-4">
 				<div class="col">
 					<p>KEYWORD</p>

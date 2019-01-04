@@ -44,11 +44,6 @@
 					<li class="nav-item"><a class="nav-link disabled"
 						href="../work/list">일자리정보</a></li>
 				</ul>
-				<form class="form-inline mt-2 mt-md-0">
-					<input class="form-control mr-sm-2" type="text"
-						placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
-				</form>
 			</div>
 		</nav>
 	</header>
@@ -72,6 +67,10 @@
 						<option value="zh-CN">중국어(간체)</option>
 						<option value="zh-TW">중국어(번체)</option>
 					</select>
+					<div class="form-group form-inline">
+						<input type="hidden" name="${_csrf.parameterName}"
+							value="${_csrf.token}" />
+					</div>
 				</div>
 				<div class="row mb-2">
 					<input class="form-control mr-sm-2" type="text" name="text"

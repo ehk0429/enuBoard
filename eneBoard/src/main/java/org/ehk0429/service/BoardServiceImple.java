@@ -18,7 +18,6 @@ public class BoardServiceImple implements BoardService {
 	@Override
 	public List<BoardVO> getBoards(Page page) {
 		// TODO Auto-generated method stub
-		System.out.println(page);
 		return mapper.getBoardListWithPaging(page);
 	}
 
@@ -31,7 +30,6 @@ public class BoardServiceImple implements BoardService {
 	@Override
 	public List<BoardVO> getGuestBooks(Page page) {
 		// TODO Auto-generated method stub
-		System.out.println(page);
 		return mapper.getGuestBookListWithPaging(page);
 	}
 

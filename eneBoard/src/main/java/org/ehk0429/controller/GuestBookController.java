@@ -4,6 +4,7 @@ import org.ehk0429.domain.BoardVO;
 import org.ehk0429.domain.Page;
 import org.ehk0429.domain.PageDTO;
 import org.ehk0429.service.BoardService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +35,8 @@ public class GuestBookController {
 	
 	//등록 
 	@GetMapping("/register")
-	private void register() {
+	private void register(Authentication authentication, Model model) {
+		model.addAttribute("writer", authentication.getName());
 	}
 	
 	@PostMapping("/register")
